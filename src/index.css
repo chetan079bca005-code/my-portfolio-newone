@@ -1,0 +1,414 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --void-black: #050505;
+    --ghost-cyan: #00f0ff;
+    --danger-red: #ff0040;
+    --phantom-purple: #8b00ff;
+    --smoke-gray: #1a1a1a;
+    --ash-gray: #2d2d2d;
+    --mist-white: #e0e0e0;
+    --fog-gray: #888888;
+    --cyan-glow: rgba(0, 240, 255, 0.4);
+    --red-glow: rgba(255, 0, 64, 0.4);
+    --purple-glow: rgba(139, 0, 255, 0.3);
+    
+    --background: 0 0% 2%;
+    --foreground: 0 0% 88%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 88%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 88%;
+    --primary: 186 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 88%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 53%;
+    --accent: 345 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 345 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 186 100% 50%;
+    --radius: 0.25rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[#050505] text-[#e0e0e0] antialiased;
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+  }
+  
+  ::selection {
+    background: rgba(0, 240, 255, 0.3);
+    color: #00f0ff;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00f0ff;
+}
+
+/* Typography */
+.font-orbitron {
+  font-family: 'Orbitron', monospace;
+}
+
+.font-rajdhani {
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.font-mono-tech {
+  font-family: 'Share Tech Mono', monospace;
+}
+
+/* Glow Effects */
+.glow-cyan {
+  text-shadow: 0 0 10px var(--cyan-glow), 0 0 20px var(--cyan-glow), 0 0 40px var(--cyan-glow);
+}
+
+.glow-red {
+  text-shadow: 0 0 10px var(--red-glow), 0 0 20px var(--red-glow), 0 0 40px var(--red-glow);
+}
+
+.glow-border-cyan {
+  box-shadow: 0 0 10px var(--cyan-glow), inset 0 0 10px var(--cyan-glow);
+}
+
+.glow-border-red {
+  box-shadow: 0 0 10px var(--red-glow), inset 0 0 10px var(--red-glow);
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(26, 26, 26, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 240, 255, 0.1);
+}
+
+/* Scanline Overlay */
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.03) 0px,
+    rgba(0, 0, 0, 0.03) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+}
+
+/* Vignette Effect */
+.vignette {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+  background: radial-gradient(ellipse at center, transparent 0%, transparent 50%, rgba(5, 5, 5, 0.8) 100%);
+}
+
+/* Glitch Animation */
+@keyframes glitch {
+  0% {
+    clip-path: inset(40% 0 61% 0);
+    transform: translate(-2px, 2px);
+  }
+  20% {
+    clip-path: inset(92% 0 1% 0);
+    transform: translate(2px, -2px);
+  }
+  40% {
+    clip-path: inset(43% 0 1% 0);
+    transform: translate(-2px, 2px);
+  }
+  60% {
+    clip-path: inset(25% 0 58% 0);
+    transform: translate(2px, -2px);
+  }
+  80% {
+    clip-path: inset(54% 0 7% 0);
+    transform: translate(-2px, 2px);
+  }
+  100% {
+    clip-path: inset(58% 0 43% 0);
+    transform: translate(2px, -2px);
+  }
+}
+
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  color: var(--danger-red);
+  animation: glitch 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  color: var(--ghost-cyan);
+  animation: glitch 3s infinite linear alternate-reverse;
+}
+
+/* Pulse Animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--cyan-glow), 0 0 10px var(--cyan-glow);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--cyan-glow), 0 0 40px var(--cyan-glow);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Blink Cursor */
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink::after {
+  content: '_';
+  animation: blink 1s step-end infinite;
+  color: var(--ghost-cyan);
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Scan Effect */
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--ghost-cyan), transparent);
+  animation: scan 4s linear infinite;
+}
+
+/* Ticker Animation */
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker {
+  animation: ticker 30s linear infinite;
+}
+
+/* Hexagon Shape */
+.hexagon {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* Progress Bar Animation */
+@keyframes fill-bar {
+  from {
+    width: 0%;
+  }
+}
+
+/* Shine Effect */
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-effect::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(0, 240, 255, 0.1) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%) rotate(45deg);
+  transition: transform 0.6s;
+}
+
+.shine-effect:hover::after {
+  animation: shine 0.6s ease-in-out;
+}
+
+/* Section Label Style */
+.section-label {
+  @apply font-mono-tech text-sm tracking-[0.3em] text-[#888888] mb-4;
+}
+
+/* Button Styles */
+.btn-cyan {
+  @apply relative px-8 py-3 font-orbitron text-sm tracking-wider uppercase;
+  @apply border border-[#00f0ff] text-[#00f0ff] bg-transparent;
+  @apply transition-all duration-300;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+.btn-cyan:hover {
+  @apply bg-[#00f0ff] text-black;
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.6);
+}
+
+.btn-red {
+  @apply relative px-8 py-3 font-orbitron text-sm tracking-wider uppercase;
+  @apply border border-[#ff0040] text-[#ff0040] bg-transparent;
+  @apply transition-all duration-300;
+  box-shadow: 0 0 10px rgba(255, 0, 64, 0.2);
+}
+
+.btn-red:hover {
+  @apply bg-[#ff0040] text-white;
+  box-shadow: 0 0 30px rgba(255, 0, 64, 0.6);
+}
+
+/* Card Hover Effect */
+.card-hover {
+  @apply transition-all duration-300;
+}
+
+.card-hover:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 240, 255, 0.15);
+}
+
+/* Timeline Line */
+.timeline-line {
+  background: linear-gradient(180deg, var(--ghost-cyan) 0%, var(--phantom-purple) 50%, var(--danger-red) 100%);
+}
+
+/* Skill Bar */
+.skill-bar {
+  @apply h-2 bg-[#1a1a1a] rounded-full overflow-hidden;
+}
+
+.skill-fill {
+  @apply h-full rounded-full;
+  background: linear-gradient(90deg, var(--ghost-cyan), var(--phantom-purple));
+  box-shadow: 0 0 10px var(--cyan-glow);
+}
+
+/* Noise Texture */
+.noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9997;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .font-orbitron {
+    letter-spacing: 0.1em;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
