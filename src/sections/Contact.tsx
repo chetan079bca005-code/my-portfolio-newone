@@ -71,7 +71,7 @@ export default function Contact() {
             TRANSMISSION
           </h2>
           <p className="text-fog/70 font-rajdhani mt-4 max-w-2xl mx-auto">
-            Establish a secure connection. All transmissions are encrypted and 
+            Establish a secure connection. All transmissions are encrypted and
             will be responded to within 24 hours.
           </p>
         </motion.div>
@@ -127,11 +127,10 @@ export default function Contact() {
                         onFocus={() => setFocusedField('name')}
                         onBlur={() => setFocusedField(null)}
                         required
-                        className={`w-full bg-void border ${
-                          focusedField === 'name'
+                        className={`w-full bg-void border ${focusedField === 'name'
                             ? 'border-cyan shadow-cyan'
                             : 'border-ash'
-                        } rounded px-4 py-3 text-mist font-rajdhani focus:outline-none transition-all duration-300`}
+                          } rounded px-4 py-3 text-mist font-rajdhani focus:outline-none transition-all duration-300`}
                         placeholder="Enter your designation..."
                       />
                     </div>
@@ -150,11 +149,10 @@ export default function Contact() {
                         onFocus={() => setFocusedField('email')}
                         onBlur={() => setFocusedField(null)}
                         required
-                        className={`w-full bg-void border ${
-                          focusedField === 'email'
+                        className={`w-full bg-void border ${focusedField === 'email'
                             ? 'border-cyan shadow-cyan'
                             : 'border-ash'
-                        } rounded px-4 py-3 text-mist font-rajdhani focus:outline-none transition-all duration-300`}
+                          } rounded px-4 py-3 text-mist font-rajdhani focus:outline-none transition-all duration-300`}
                         placeholder="your@email.com"
                       />
                     </div>
@@ -173,11 +171,10 @@ export default function Contact() {
                         onBlur={() => setFocusedField(null)}
                         required
                         rows={4}
-                        className={`w-full bg-void border ${
-                          focusedField === 'message'
+                        className={`w-full bg-void border ${focusedField === 'message'
                             ? 'border-cyan shadow-cyan'
                             : 'border-ash'
-                        } rounded px-4 py-3 text-mist font-rajdhani focus:outline-none transition-all duration-300 resize-none`}
+                          } rounded px-4 py-3 text-mist font-rajdhani focus:outline-none transition-all duration-300 resize-none`}
                         placeholder="Enter your transmission..."
                       />
                     </div>
@@ -276,7 +273,7 @@ export default function Contact() {
                 </a>
 
                 <a
-                  href="https://wa.me/919849756660"
+                  href="https://wa.me/9779849756660"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 text-fog hover:text-cyan transition-colors group"

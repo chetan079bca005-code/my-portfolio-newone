@@ -6,6 +6,7 @@ import './App.css';
 import Navigation from './components/Navigation';
 import ParticleBackground from './components/ParticleBackground';
 import Footer from './components/Footer';
+import WhatsAppButton from './components/WhatsAppButton';
 
 // Sections
 import Hero from './sections/Hero';
@@ -175,6 +176,9 @@ function App() {
 
           {/* Footer */}
           <Footer />
+
+          {/* Floating Action Buttons */}
+          <WhatsAppButton />
         </motion.div>
       )}
     </>
